@@ -1,0 +1,6 @@
+import { Card } from '@fluentui/react-components';
+import { DocumentRegular, TagRegular, ShieldCheckmarkRegular, LockClosedRegular } from '@fluentui/react-icons';
+import styles from '../styles.module.css';
+interface MetricsProps { total: number; choices: number; protectedDocuments: number; }
+const data = (props: MetricsProps) => [{ label: 'Total documents', value: props.total, note: 'Across all site document libraries', icon: <DocumentRegular />, tone: 'blue' }, { label: 'Metadata choices', value: props.choices, suffix: ' / 200 defined', note: 'Taxonomy property values cataloged', icon: <TagRegular />, tone: 'purple' }, { label: 'Choice coverage', value: `${Math.round(props.choices / 2)}%`, suffix: ' choices utilized', note: 'Values with 1+ document tagged', icon: <ShieldCheckmarkRegular />, tone: 'green' }, { label: 'Restricted / confid.', value: props.protectedDocuments, suffix: ' audited', note: 'Protected by sensitivity labels', icon: <LockClosedRegular />, tone: 'amber' }];
+export function Metrics(props: MetricsProps) { return <section className={styles.metrics}>{data(props).map(metric => <Card className={styles.metric} key={metric.label}><div className={`${styles.metricIcon} ${styles[metric.tone]}`}>{metric.icon}</div><p>{metric.label}</p><h3>{metric.value}<span>{metric.suffix}</span></h3><small>{metric.note}</small></Card>)}</section>; }
