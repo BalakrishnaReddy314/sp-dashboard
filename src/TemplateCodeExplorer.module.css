@@ -1,0 +1,246 @@
+.container {
+  width: 100%;
+  max-width: 1140px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  color: #1e293b;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleIcon {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.titleSub {
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.searchInput {
+  height: 34px;
+  width: 190px;
+  padding: 0 12px 0 32px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  color: #334155;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.searchInput:focus {
+  border-color: #0284c7;
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.viewAllBtn {
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.viewAllBtn:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* Filter pills */
+.pillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pill {
+  border: none;
+  outline: none;
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.pill:hover {
+  background-color: #e2e8f0;
+}
+
+.pillActive {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.pillActive:hover {
+  background-color: #0369a1;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  width: 100%;
+  margin: 12px 0 10px 0;
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.775rem;
+  margin-bottom: 10px;
+}
+
+.statusCount {
+  color: #64748b;
+}
+
+.statusHint {
+  color: #0284c7;
+  font-style: italic;
+}
+
+/* Values Container */
+.valuesBox {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  max-height: 220px;
+  overflow-y: scroll;
+  background-color: #ffffff;
+}
+
+/* Matching the custom scrollbar look */
+.valuesBox::-webkit-scrollbar {
+  width: 8px;
+}
+
+.valuesBox::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.valuesBox::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 4px;
+}
+
+.valuesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+/* Tag buttons */
+.tagItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.tagItem:hover {
+  border-color: #94a3b8;
+  background-color: #f8fafc;
+}
+
+.tagCode {
+  color: #0284c7;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.tagTitle {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.tagBadge {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 1px 6px;
+  margin-left: 2px;
+  line-height: 1.2;
+}
