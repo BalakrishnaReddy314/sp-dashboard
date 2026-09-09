@@ -1,0 +1,105 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #4a5d78;
+  text-transform: uppercase;
+}
+
+/* Icon Badges */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.blue {
+  background-color: #f0f7ff;
+  color: #0284c7;
+}
+
+.purple {
+  background-color: #faf5ff;
+  color: #9333ea;
+}
+
+.green {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.amber {
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+/* Value & Extra Detail */
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0b192c;
+  line-height: 1;
+}
+
+.highlight {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.highlight.muted {
+  color: #94a3b8;
+}
+
+.highlight.green {
+  color: #10b981;
+}
+
+.highlight.amber {
+  color: #d97706;
+}
+
+/* Subtitle Description */
+.description {
+  margin: 0;
+  font-size: 13.5px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
