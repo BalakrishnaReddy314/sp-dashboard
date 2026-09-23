@@ -1,0 +1,512 @@
+/* Container & Global Variables */
+.explorerContainer {
+  --primary-blue: #0078d4;
+  --primary-blue-hover: #106ebe;
+  --selection-bg: #e0f0fc;
+  --bg-sidebar: #f8f9fa;
+  --bg-main: #ffffff;
+  --border-color: #edebe9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --warning-bg: #fffbf0;
+  --warning-border: #f59e0b;
+  --warning-text: #b45309;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Top Accent line */
+.topAccentBar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary-blue);
+  flex-shrink: 0;
+}
+
+.mainLayout {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 3px);
+  overflow: hidden;
+}
+
+/* ---------------- Sidebar Styling ---------------- */
+.sidebar {
+  width: 290px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 12px 16px;
+}
+
+.sidebarTitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #334155;
+}
+
+.sidebarHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.iconButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.iconButton:hover {
+  background-color: #eaecef;
+  color: var(--text-primary);
+}
+
+/* Search Box */
+.searchWrapper {
+  position: relative;
+  margin: 0 16px 12px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-muted);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 34px;
+  padding: 0 12px 0 34px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  background-color: #ffffff;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.searchInput:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 1px var(--primary-blue);
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+/* Tree Navigation */
+.treeNav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.folderGroup {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+}
+
+.folderToggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.folderToggle:hover {
+  background-color: #eaecef;
+}
+
+.chevronIcon {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  margin-right: 4px;
+}
+
+.folderIcon {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  margin-right: 8px;
+}
+
+.folderLabel {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.folderChildren {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Tree Item / File Document */
+.treeItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px 6px 36px; /* Indent sub items under folder */
+  border-radius: 6px;
+  font-size: 13px;
+  color: #475569;
+  text-align: left;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Parent root-level items (e.g. Overview, FAQ) without category indent */
+.rootLevelItem {
+  padding-left: 12px;
+}
+
+.treeItem:hover {
+  background-color: #eaecef;
+  color: var(--text-primary);
+}
+
+/* Active Item Style (matches design pill with blue bar) */
+.activeTreeItem {
+  background-color: var(--selection-bg) !important;
+  color: var(--primary-blue) !important;
+  font-weight: 600;
+}
+
+.activeTreeItem::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  border-radius: 2px;
+  background-color: var(--primary-blue);
+}
+
+.itemIcon {
+  font-size: 17px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.itemLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar Footer */
+.sidebarFooter {
+  border-top: 1px solid var(--border-color);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background-color: var(--bg-sidebar);
+}
+
+.footerCount {
+  font-weight: 500;
+}
+
+.footerFormat {
+  color: var(--text-muted);
+}
+
+/* ---------------- Content Pane Styling ---------------- */
+.contentPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Header with Breadcrumb and Actions */
+.contentHeader {
+  height: 52px;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.breadcrumbHomeIcon {
+  color: var(--primary-blue);
+  font-size: 16px;
+}
+
+.breadcrumbItem {
+  color: var(--text-secondary);
+}
+
+.breadcrumbSeparator {
+  color: #cbd5e1;
+}
+
+.breadcrumbActive {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.actionButton:hover {
+  background-color: #f1f5f9;
+  color: var(--text-primary);
+}
+
+/* Scrollable document area */
+.scrollableContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 56px 64px 56px;
+}
+
+.article {
+  max-width: 820px;
+}
+
+/* Metadata Row */
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaItem:first-child {
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+.metaIcon {
+  font-size: 15px;
+}
+
+.metaDot {
+  color: #cbd5e1;
+}
+
+/* ---------------- Markdown Rendered Elements ---------------- */
+.markdownBody {
+  line-height: 1.65;
+  color: #1e293b;
+}
+
+.heading1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+  line-height: 1.25;
+}
+
+.heading2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 32px 0 16px 0;
+}
+
+.heading3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 24px 0 12px 0;
+}
+
+.paragraph {
+  font-size: 15px;
+  color: #334155;
+  margin: 0 0 16px 0;
+}
+
+.orderedList {
+  margin: 0 0 24px 0;
+  padding-left: 20px;
+  font-size: 15px;
+  color: #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.unorderedList {
+  margin: 0 0 24px 0;
+  padding-left: 20px;
+  font-size: 15px;
+  color: #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inlineCode {
+  background-color: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.codeBlock {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.blockquote {
+  border-left: 3px solid #cbd5e1;
+  padding-left: 16px;
+  margin: 16px 0;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Callout / Warning box as depicted in screenshot */
+.warningCallout {
+  background-color: var(--warning-bg);
+  border-left: 4px solid var(--warning-border);
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+  margin: 28px 0;
+}
+
+.warningHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--warning-text);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.warningIcon {
+  color: var(--warning-border);
+  font-size: 18px;
+}
+
+.warningContent p {
+  margin: 0;
+  font-size: 14px;
+  color: #451a03;
+  line-height: 1.5;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px;
+  }
+  .scrollableContent {
+    padding: 20px 24px;
+  }
+}
