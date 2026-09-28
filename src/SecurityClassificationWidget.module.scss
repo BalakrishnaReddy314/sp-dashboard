@@ -1,0 +1,160 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #faf9f8;
+  border: 1px solid #edebe9;
+  border-radius: 6px;
+  padding: 24px;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Header & Meta */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shieldIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0078d4;
+  font-size: 18px;
+}
+
+.shieldIcon {
+  font-size: 18px;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #201f1e;
+  line-height: 22px;
+}
+
+.pathMeta {
+  font-size: 13px;
+  color: #605e5c;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  color: #605e5c;
+  line-height: 18px;
+}
+
+/* Chart Area */
+.chartContainer {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Ensure fluent bar gets rounded edges cleanly */
+.chartContainer :global(.ms-StackedBarChart) {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Metric Cards */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid #e1dfdd;
+  border-radius: 4px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+  min-height: 90px;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  border-color: #a19f9d;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.cardSelected {
+  border-color: #0078d4;
+  box-shadow: 0 0 0 1px #0078d4, 0 3px 8px rgba(0, 120, 212, 0.15);
+}
+
+.card:focus-visible {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.colorIndicatorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tierName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #323130;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.count {
+  font-size: 26px;
+  font-weight: 700;
+  color: #201f1e;
+  line-height: 1;
+}
+
+.percentage {
+  font-size: 13px;
+  color: #605e5c;
+  font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 680px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
