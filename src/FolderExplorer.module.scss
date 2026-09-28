@@ -1,0 +1,287 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #fafbfc;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.folderIcon {
+  width: 18px;
+  height: 18px;
+  stroke: #0969da;
+  stroke-width: 2;
+  fill: none;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #24292f;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #57606a;
+}
+
+/* List Container */
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background-color: #f6f8fa;
+}
+
+/* Card / Row Item */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+.mainRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  gap: 12px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.chevronBtn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #57606a;
+  border-radius: 4px;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.chevronBtn:hover {
+  background-color: #f3f4f6;
+}
+
+.chevronBtnRotated {
+  transform: rotate(90deg);
+}
+
+.chevronIcon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.folderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.folderName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2328;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 4px;
+  background-color: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: #0969da;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  background-color: #eff6ff;
+  color: #0969da;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.badgeDark {
+  background-color: #e5e7eb;
+  color: #1f2328;
+}
+
+.drilldownBtn {
+  background: none;
+  border: none;
+  color: #0969da;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.drilldownBtn:hover {
+  text-decoration: underline;
+  background-color: #f0f7ff;
+}
+
+/* Expanded Subfolders Area */
+.subfolderPanel {
+  border-top: 1px solid #f0f2f5;
+  background-color: #ffffff;
+  padding: 14px 20px 16px 42px;
+}
+
+.subfolderPanelTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #656d76;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.subfolderList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subfolderItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #333333;
+}
+
+.subfolderItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #0969da;
+}
+
+.subfolderCount {
+  font-size: 13px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+/* Drilldown Detailed View */
+.drilldownNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #0969da;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.backBtn:hover {
+  text-decoration: underline;
+}
+
+.drilldownFolderTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2328;
+}
+
+.drilldownSummaryLabel {
+  font-size: 12px;
+  color: #57606a;
+  margin: 8px 0 12px 2px;
+}
+
+.subfolderCardIcon {
+  width: 16px;
+  height: 16px;
+  stroke: #57606a;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.percentageLabel {
+  font-size: 12px;
+  color: #656d76;
+  min-width: 36px;
+  text-align: right;
+}
